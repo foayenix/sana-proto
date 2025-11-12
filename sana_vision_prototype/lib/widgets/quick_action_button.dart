@@ -15,30 +15,35 @@ class QuickActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: AppTheme.primaryGreen.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(16),
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                color: AppTheme.primaryGreen.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(
+                icon,
+                color: AppTheme.primaryGreen,
+                size: 28,
+              ),
             ),
-            child: Icon(
-              icon,
-              color: AppTheme.primaryGreen,
-              size: 28,
+            const SizedBox(height: 8),
+            Text(
+              label,
+              style: Theme.of(context).textTheme.labelSmall,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            label,
-            style: Theme.of(context).textTheme.labelSmall,
-            textAlign: TextAlign.center,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -55,21 +55,25 @@ class _MainNavigatorState extends State<MainNavigator> {
         children: [
           _screens[_currentIndex],
           // Demo Data Watermark
-          Positioned(
-            top: 50,
-            right: 16,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                'DEMO DATA',
-                style: TextStyle(
-                  fontSize: 10,
-                  color: Colors.black.withOpacity(0.3),
-                  fontWeight: FontWeight.w600,
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8, right: 16),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    'DEMO DATA',
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.black.withOpacity(0.3),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ),
             ),
