@@ -221,32 +221,31 @@ class _JournalScreenState extends State<JournalScreen> {
                         ),
                       ],
                     ),
-                      const SizedBox(height: 16),
-                      Text(
-                        DummyData.sampleAIResponses[DummyData.aiPersonas[_selectedPersonaIndex].name] ?? '',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              height: 1.6,
-                            ),
-                      ),
-                      const SizedBox(height: 16),
-                      Divider(color: AppTheme.textLight.withOpacity(0.2)),
-                      const SizedBox(height: 12),
-                      Row(
-                        children: [
-                          const Icon(Icons.insights, size: 16, color: AppTheme.textSecondary),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              'Connected to your wellness data: Your anxiety score has been elevated this week',
-                              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                            ),
+                    const SizedBox(height: 16),
+                    Text(
+                      DummyData.sampleAIResponses[DummyData.aiPersonas[_selectedPersonaIndex].name] ?? '',
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            height: 1.6,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 16),
+                    Divider(color: AppTheme.textLight.withOpacity(0.2)),
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        const Icon(Icons.insights, size: 16, color: AppTheme.textSecondary),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Text(
+                            'Connected to your wellness data: Your anxiety score has been elevated this week',
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                  fontStyle: FontStyle.italic,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 16),
