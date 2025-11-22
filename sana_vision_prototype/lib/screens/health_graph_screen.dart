@@ -101,7 +101,7 @@ class HealthGraphScreen extends StatelessWidget {
                           tickBorderData: const BorderSide(color: Colors.transparent),
                           tickCount: 5,
                           ticksTextStyle: const TextStyle(fontSize: 10, color: AppTheme.textLight),
-                          radarTouchData: const RadarTouchData(enabled: false),
+                          radarTouchData: RadarTouchData(enabled: false),
                           dataSets: [
                             RadarDataSet(
                               fillColor: AppTheme.primaryGreen.withOpacity(0.3),
