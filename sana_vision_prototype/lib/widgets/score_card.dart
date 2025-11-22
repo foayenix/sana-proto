@@ -72,11 +72,12 @@ class ScoreCard extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  AppTheme.getStatusEmoji(subtitle!),
-                  style: const TextStyle(fontSize: 14),
+                Icon(
+                  AppTheme.getStatusIcon(subtitle!),
+                  size: 16,
+                  color: color ?? AppTheme.primaryGreen,
                 ),
-                const SizedBox(width: 4),
+                const SizedBox(width: 6),
                 Text(
                   subtitle!,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
