@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../theme/app_theme.dart';
+import '../widgets/premium_icons.dart';
 
 class EnterpriseDashboardScreen extends StatefulWidget {
   const EnterpriseDashboardScreen({super.key});
@@ -276,11 +277,11 @@ class _EnterpriseDashboardScreenState extends State<EnterpriseDashboardScreen>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _buildOutcomeMetric(context, 'Satisfaction', '4.6/5', '⭐'),
+                      _buildOutcomeMetric(context, 'Satisfaction', '4.6/5', Icons.star_rounded, PremiumIcon.vitalityGradient),
                       Container(width: 1, height: 40, color: AppTheme.warmNeutral),
-                      _buildOutcomeMetric(context, 'Adherence', '82%', '✅'),
+                      _buildOutcomeMetric(context, 'Adherence', '82%', Icons.check_circle_rounded, PremiumIcon.successGradient),
                       Container(width: 1, height: 40, color: AppTheme.warmNeutral),
-                      _buildOutcomeMetric(context, 'Readmission', '-34%', '📉'),
+                      _buildOutcomeMetric(context, 'Readmission', '-34%', Icons.trending_down_rounded, PremiumIcon.healingGradient),
                     ],
                   ),
                 ],
@@ -768,22 +769,28 @@ class _EnterpriseDashboardScreenState extends State<EnterpriseDashboardScreen>
     );
   }
 
-  Widget _buildOutcomeMetric(BuildContext context, String label, String value, String emoji) {
+  Widget _buildOutcomeMetric(BuildContext context, String label, String value, IconData icon, List<Color> gradientColors) {
     return Column(
       children: [
-        Text(emoji, style: const TextStyle(fontSize: 24)),
-        const SizedBox(height: 8),
+        PremiumIcon(
+          icon: icon,
+          gradientColors: gradientColors,
+          size: 32,
+          iconSize: 16,
+          borderRadius: 10,
+        ),
+        const SizedBox(height: 6),
         Text(
           value,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
-                color: AppTheme.accentTeal,
+                color: gradientColors.first,
               ),
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 2),
         Text(
           label,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(fontSize: 10),
           textAlign: TextAlign.center,
         ),
       ],

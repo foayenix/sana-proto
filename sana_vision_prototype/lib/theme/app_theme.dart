@@ -2,31 +2,74 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // SANA Brand Colors
-  static const Color primaryGreen = Color(0xFF6B9080);
-  static const Color secondaryBlue = Color(0xFF7BA5C6);
-  static const Color accentTeal = Color(0xFF5A9B9B);
-  static const Color warmNeutral = Color(0xFFEAE7DC);
-  static const Color lightCream = Color(0xFFF8F6F3);
-  static const Color darkGreen = Color(0xFF4A6D5B);
+  // SANA Brand Colors - Premium Sage Palette
+  static const Color primaryGreen = Color(0xFF4A7C59);
+  static const Color secondaryBlue = Color(0xFF3B82F6);
+  static const Color accentTeal = Color(0xFF14B8A6);
+  static const Color warmNeutral = Color(0xFFF1F5F9);
+  static const Color lightCream = Color(0xFFFAFAFA);
+  static const Color darkGreen = Color(0xFF365D42);
 
-  // Status Colors
-  static const Color statusNeedsSupport = Color(0xFFE07A5F);
-  static const Color statusStable = Color(0xFFF4A261);
-  static const Color statusThriving = Color(0xFF7BA5C6);
-  static const Color statusOptimal = Color(0xFF6B9080);
-  static const Color statusRadiant = Color(0xFF5A9B9B);
+  // Premium Gradient Colors
+  static const Color gradientPurpleStart = Color(0xFF8B5CF6);
+  static const Color gradientPurpleEnd = Color(0xFF6366F1);
+  static const Color gradientTealStart = Color(0xFF10B981);
+  static const Color gradientTealEnd = Color(0xFF14B8A6);
+  static const Color gradientBlueStart = Color(0xFF3B82F6);
+  static const Color gradientBlueEnd = Color(0xFF06B6D4);
+  static const Color gradientRoseStart = Color(0xFFEC4899);
+  static const Color gradientRoseEnd = Color(0xFFF43F5E);
+  static const Color gradientAmberStart = Color(0xFFF59E0B);
+  static const Color gradientAmberEnd = Color(0xFFF97316);
+
+  // Status Colors - More vibrant
+  static const Color statusNeedsSupport = Color(0xFFF59E0B);
+  static const Color statusStable = Color(0xFF22C55E);
+  static const Color statusThriving = Color(0xFF10B981);
+  static const Color statusOptimal = Color(0xFF8B5CF6);
+  static const Color statusRadiant = Color(0xFFEC4899);
 
   // Functional Colors
-  static const Color successGreen = Color(0xFF81B29A);
-  static const Color warningOrange = Color(0xFFF2A65A);
-  static const Color errorRed = Color(0xFFD56F6F);
-  static const Color infoBlue = Color(0xFF7BA5C6);
+  static const Color successGreen = Color(0xFF22C55E);
+  static const Color warningOrange = Color(0xFFF59E0B);
+  static const Color errorRed = Color(0xFFEF4444);
+  static const Color infoBlue = Color(0xFF3B82F6);
 
   // Text Colors
-  static const Color textPrimary = Color(0xFF2C3E50);
-  static const Color textSecondary = Color(0xFF6C7A89);
-  static const Color textLight = Color(0xFF95A5A6);
+  static const Color textPrimary = Color(0xFF1E293B);
+  static const Color textSecondary = Color(0xFF64748B);
+  static const Color textLight = Color(0xFF94A3B8);
+
+  // Premium Gradients
+  static const LinearGradient healingGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [gradientTealStart, gradientTealEnd],
+  );
+
+  static const LinearGradient techGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [gradientPurpleStart, gradientPurpleEnd],
+  );
+
+  static const LinearGradient trustGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [gradientBlueStart, gradientBlueEnd],
+  );
+
+  static const LinearGradient vitalityGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [gradientAmberStart, gradientAmberEnd],
+  );
+
+  static const LinearGradient careGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [gradientRoseStart, gradientRoseEnd],
+  );
 
   static ThemeData get lightTheme {
     return ThemeData(
@@ -130,21 +173,69 @@ class AppTheme {
     }
   }
 
-  // Helper function to get status emoji
-  static String getStatusEmoji(String status) {
+  // Helper function to get status icon (replacing emojis)
+  static IconData getStatusIcon(String status) {
     switch (status.toLowerCase()) {
       case 'needs support':
-        return '🌱';
+      case 'needs attention':
+        return Icons.eco_outlined;
       case 'stable':
-        return '🌿';
+      case 'fair':
+        return Icons.spa_outlined;
       case 'thriving':
-        return '🌟';
+      case 'good':
+        return Icons.local_florist_outlined;
       case 'optimal':
-        return '✨';
+        return Icons.auto_awesome;
       case 'radiant':
-        return '🌈';
+        return Icons.brightness_7;
       default:
-        return '🌿';
+        return Icons.spa_outlined;
     }
   }
+
+  // Helper function to get status gradient colors
+  static List<Color> getStatusGradient(String status) {
+    switch (status.toLowerCase()) {
+      case 'needs support':
+      case 'needs attention':
+        return [gradientAmberStart, gradientAmberEnd];
+      case 'stable':
+      case 'fair':
+        return [const Color(0xFF22C55E), gradientTealStart];
+      case 'thriving':
+      case 'good':
+        return [gradientTealStart, gradientTealEnd];
+      case 'optimal':
+        return [gradientPurpleStart, gradientPurpleEnd];
+      case 'radiant':
+        return [gradientRoseStart, gradientPurpleStart];
+      default:
+        return [gradientTealStart, gradientTealEnd];
+    }
+  }
+
+  // Premium box shadow
+  static List<BoxShadow> premiumShadow(Color color) {
+    return [
+      BoxShadow(
+        color: color.withOpacity(0.25),
+        blurRadius: 12,
+        offset: const Offset(0, 4),
+      ),
+    ];
+  }
+
+  // Card decoration with premium styling
+  static BoxDecoration get premiumCardDecoration => BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(20),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.04),
+        blurRadius: 20,
+        offset: const Offset(0, 4),
+      ),
+    ],
+  );
 }

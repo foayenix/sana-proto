@@ -6,6 +6,7 @@ import '../widgets/quick_action_button.dart';
 import '../widgets/activity_feed_item.dart';
 import '../widgets/practitioner_card.dart';
 import '../widgets/wearable_widget.dart';
+import '../widgets/premium_icons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,61 +50,76 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Today's Wellness Summary Card
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Today\'s Wellness Summary',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
-                      const SizedBox(height: 20),
+              GlassmorphicCard(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        PremiumIcon(
+                          icon: Icons.favorite_rounded,
+                          gradientColors: PremiumIcon.healingGradient,
+                          size: 28,
+                          iconSize: 14,
+                          borderRadius: 8,
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          'Today\'s Wellness',
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.w600,
+                              ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
 
-                      // SANA Health Score
-                      Row(
-                        children: [
-                          Expanded(
-                            child: ScoreCard(
-                              title: 'SANA Health Score',
-                              score: healthScore.overall,
-                              change: 3.0,
-                              subtitle: healthScore.status,
-                              color: AppTheme.getStatusColor(healthScore.status),
-                            ),
+                    // SANA Health Score
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ScoreCard(
+                            title: 'SANA Score',
+                            score: healthScore.overall,
+                            change: 3.0,
+                            subtitle: healthScore.status,
+                            color: AppTheme.getStatusColor(healthScore.status),
                           ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                _buildQuickMetric(
-                                  context,
-                                  'Mood',
-                                  '😊',
-                                  'Good',
-                                ),
-                                const SizedBox(height: 12),
-                                _buildQuickMetric(
-                                  context,
-                                  'Energy',
-                                  '⚡',
-                                  '7/10',
-                                ),
-                                const SizedBox(height: 12),
-                                _buildQuickMetric(
-                                  context,
-                                  'Sleep',
-                                  '😴',
-                                  '7.5h',
-                                ),
-                              ],
-                            ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              _buildQuickMetric(
+                                context,
+                                'Mood',
+                                Icons.sentiment_very_satisfied_rounded,
+                                PremiumIcon.healingGradient,
+                                'Good',
+                              ),
+                              const SizedBox(height: 6),
+                              _buildQuickMetric(
+                                context,
+                                'Energy',
+                                Icons.bolt_rounded,
+                                PremiumIcon.vitalityGradient,
+                                '7/10',
+                              ),
+                              const SizedBox(height: 6),
+                              _buildQuickMetric(
+                                context,
+                                'Sleep',
+                                Icons.bedtime_rounded,
+                                PremiumIcon.calmGradient,
+                                '7.5h',
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 16),
@@ -212,31 +228,58 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildQuickMetric(BuildContext context, String label, String emoji, String value) {
+  Widget _buildQuickMetric(
+    BuildContext context,
+    String label,
+    IconData icon,
+    List<Color> gradientColors,
+    String value,
+  ) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: AppTheme.warmNeutral.withOpacity(0.3),
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.04),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            label,
-            style: Theme.of(context).textTheme.bodySmall,
+          PremiumIcon(
+            icon: icon,
+            gradientColors: gradientColors,
+            size: 32,
+            iconSize: 16,
+            borderRadius: 10,
+            hasShadow: false,
           ),
-          Row(
-            children: [
-              Text(emoji, style: const TextStyle(fontSize: 16)),
-              const SizedBox(width: 4),
-              Text(
-                value,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-            ],
+          const SizedBox(width: 10),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppTheme.textLight,
+                        fontSize: 11,
+                      ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  value,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13,
+                      ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

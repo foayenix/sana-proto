@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../theme/app_theme.dart';
 import '../models/dummy_data.dart';
+import '../widgets/premium_icons.dart';
 
 class JournalScreen extends StatefulWidget {
   const JournalScreen({super.key});
@@ -125,25 +126,32 @@ class _JournalScreenState extends State<JournalScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            persona.emoji,
-                            style: const TextStyle(fontSize: 40),
+                          PremiumPersonaBadge(
+                            personaId: persona.name,
+                            size: 44,
                           ),
                           const SizedBox(height: 8),
                           Text(
                             persona.name,
                             textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.labelMedium?.copyWith(
                                   fontWeight: FontWeight.w600,
+                                  fontSize: 11,
                                 ),
                           ),
                           const SizedBox(height: 4),
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 4.0),
                             child: Text(
                               persona.description,
                               textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.labelSmall,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                    fontSize: 9,
+                                  ),
                             ),
                           ),
                         ],
@@ -179,30 +187,40 @@ class _JournalScreenState extends State<JournalScreen> {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: 12),
-              Card(
-                color: DummyData.aiPersonas[_selectedPersonaIndex].color.withOpacity(0.05),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            DummyData.aiPersonas[_selectedPersonaIndex].emoji,
-                            style: const TextStyle(fontSize: 30),
+              GlassmorphicCard(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        PremiumPersonaBadge(
+                          personaId: DummyData.aiPersonas[_selectedPersonaIndex].name,
+                          size: 40,
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                DummyData.aiPersonas[_selectedPersonaIndex].name,
+                                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              const SizedBox(height: 2),
+                              Text(
+                                'AI Companion',
+                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                      color: AppTheme.textLight,
+                                    ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              DummyData.aiPersonas[_selectedPersonaIndex].name,
-                              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    color: DummyData.aiPersonas[_selectedPersonaIndex].color,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
                       const SizedBox(height: 16),
                       Text(
                         DummyData.sampleAIResponses[DummyData.aiPersonas[_selectedPersonaIndex].name] ?? '',
@@ -211,7 +229,7 @@ class _JournalScreenState extends State<JournalScreen> {
                             ),
                       ),
                       const SizedBox(height: 16),
-                      Divider(color: DummyData.aiPersonas[_selectedPersonaIndex].color.withOpacity(0.3)),
+                      Divider(color: AppTheme.textLight.withOpacity(0.2)),
                       const SizedBox(height: 12),
                       Row(
                         children: [
@@ -289,27 +307,31 @@ class _JournalScreenState extends State<JournalScreen> {
                       itemCount: DummyData.aiPersonas.length,
                       itemBuilder: (context, index) {
                         final persona = DummyData.aiPersonas[index];
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 16),
-                          color: persona.color.withOpacity(0.05),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
+                        return Container(
+                          margin: const EdgeInsets.only(bottom: 12),
+                          child: GlassmorphicCard(
+                            padding: const EdgeInsets.all(14.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
-                                    Text(persona.emoji, style: const TextStyle(fontSize: 24)),
-                                    const SizedBox(width: 12),
-                                    Text(
-                                      persona.name,
-                                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                            color: persona.color,
-                                          ),
+                                    PremiumPersonaBadge(
+                                      personaId: persona.name,
+                                      size: 32,
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Expanded(
+                                      child: Text(
+                                        persona.name,
+                                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 12),
+                                const SizedBox(height: 10),
                                 Text(
                                   DummyData.sampleAIResponses[persona.name] ?? '',
                                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -382,10 +404,10 @@ class _JournalScreenState extends State<JournalScreen> {
                       itemCount: DummyData.journalEntries.length,
                       itemBuilder: (context, index) {
                         final entry = DummyData.journalEntries[index];
-                        return Card(
-                          margin: const EdgeInsets.only(bottom: 12),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
+                        return Container(
+                          margin: const EdgeInsets.only(bottom: 10),
+                          child: GlassmorphicCard(
+                            padding: const EdgeInsets.all(14.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -393,25 +415,43 @@ class _JournalScreenState extends State<JournalScreen> {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      DateFormat('EEEE, MMM d').format(entry.date),
-                                      style: Theme.of(context).textTheme.titleSmall,
+                                      DateFormat('EEE, MMM d').format(entry.date),
+                                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                            fontSize: 12,
+                                          ),
                                     ),
-                                    Text(entry.mood, style: const TextStyle(fontSize: 24)),
+                                    PremiumMoodIcon(
+                                      mood: _emojiToMood(entry.mood),
+                                      size: 28,
+                                    ),
                                   ],
                                 ),
-                                const SizedBox(height: 12),
+                                const SizedBox(height: 10),
                                 Text(
                                   entry.content,
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                        height: 1.4,
+                                      ),
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                const SizedBox(height: 12),
+                                const SizedBox(height: 10),
                                 Wrap(
-                                  spacing: 8,
+                                  spacing: 6,
+                                  runSpacing: 4,
                                   children: entry.tags.map((tag) {
-                                    return Chip(
-                                      label: Text(tag),
-                                      labelStyle: Theme.of(context).textTheme.labelSmall,
-                                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    return Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      decoration: BoxDecoration(
+                                        color: AppTheme.warmNeutral,
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: Text(
+                                        tag,
+                                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                              fontSize: 10,
+                                            ),
+                                      ),
                                     );
                                   }).toList(),
                                 ),
@@ -429,6 +469,31 @@ class _JournalScreenState extends State<JournalScreen> {
         );
       },
     );
+  }
+
+  String _emojiToMood(String emoji) {
+    switch (emoji) {
+      case '😊':
+      case '😄':
+        return 'happy';
+      case '😌':
+      case '🧘':
+        return 'calm';
+      case '😴':
+      case '💤':
+        return 'tired';
+      case '😰':
+      case '😟':
+        return 'anxious';
+      case '😢':
+      case '😔':
+        return 'sad';
+      case '⚡':
+      case '💪':
+        return 'energetic';
+      default:
+        return 'calm';
+    }
   }
 
   @override
