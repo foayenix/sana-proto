@@ -38,6 +38,8 @@ class InterventionPerformance(BaseModel):
 
 
 class PredictionResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}
+
     user_id: str
     condition: str
     top_recommendations: List[Dict]

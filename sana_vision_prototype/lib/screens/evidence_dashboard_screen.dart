@@ -244,7 +244,7 @@ class EvidenceDashboardScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        _buildOutcomeMetric(context, 'Client Improvement', '72%', '↑ 8%'),
+                        _buildOutcomeMetric(context, 'Client Improvement', '45%', '↑ 6%'),
                         _buildOutcomeMetric(context, 'Avg Treatment', '8.5 sessions', 'Platform avg: 9.2'),
                       ],
                     ),

@@ -101,7 +101,7 @@
 - [x] Welcome banner with practitioner name
 - [x] Practice insights (4 metric cards)
 - [x] SANA Index tracking line chart (45→87 over 6 months)
-- [x] Outcome analytics with improvement rate (72%)
+- [x] Outcome analytics with improvement rate (45%)
 - [x] Condition-specific success rates (4 conditions with progress bars)
 - [x] Client cohort analysis pie chart
 - [x] Demographics and age groups
@@ -229,11 +229,11 @@
 - [x] Specialty: Anxiety & Digestive Health
 
 ### ✅ Outcomes Data
-- [x] Average Improvement: 67%
-- [x] Anxiety & Stress: 78% improvement
-- [x] Digestive Issues: 71% improvement
-- [x] Sleep Disorders: 84% improvement
-- [x] Chronic Pain: 65% improvement
+- [x] Average Improvement: 44%
+- [x] Anxiety & Stress: 48% improvement
+- [x] Digestive Issues: 42% improvement
+- [x] Sleep Disorders: 52% improvement
+- [x] Chronic Pain: 35% improvement
 
 ### ✅ Enterprise Metrics
 - [x] NHS Cost Savings: £124,000
@@ -417,7 +417,7 @@ A: This is a demonstration prototype showing our 5-10 year vision. All features 
 A: Three things: (1) Proprietary SANA Index for practitioner quality, (2) Real-time outcome tracking and evidence generation, (3) True integration with NHS and corporate wellness programs.
 
 **Q: How accurate is the data?**
-A: The numbers shown (67% improvement, £124k savings, etc.) are based on research in CAM effectiveness and real-world NHS cost models. The actual SANA platform will track real patient data.
+A: The numbers shown (44% improvement rate, £124k savings, etc.) are based on research in CAM effectiveness and real-world NHS cost models. The actual SANA platform will track real patient data.
 
 **Q: When will this be available?**
 A: We're building in phases. [Discuss your roadmap/timeline].

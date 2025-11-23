@@ -143,7 +143,7 @@ The app includes extensive data visualization using `fl_chart`:
 ## 🎭 Demo Data
 
 All data in this prototype is dummy/simulated data designed to tell a compelling story of:
-- **Measurable improvement** - 67% average client improvement
+- **Measurable improvement** - 44% average client improvement rate
 - **Evidence-based care** - 12,450+ research-grade data points
 - **High satisfaction** - 4.8/5 practitioner ratings
 - **Cost savings** - £124,000 NHS savings demonstrated

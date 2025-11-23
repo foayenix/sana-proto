@@ -329,12 +329,12 @@ class DummyData {
     clientSatisfaction: 9.0,
   );
 
-  // Outcome Data
+  // Outcome Data - represents % of clients showing clinically significant improvement
   static final List<OutcomeData> outcomeData = [
-    OutcomeData(condition: 'Anxiety & Stress', improvement: 78.0, clientCount: 180),
-    OutcomeData(condition: 'Digestive Issues', improvement: 71.0, clientCount: 120),
-    OutcomeData(condition: 'Sleep Disorders', improvement: 84.0, clientCount: 95),
-    OutcomeData(condition: 'Chronic Pain', improvement: 65.0, clientCount: 55),
+    OutcomeData(condition: 'Anxiety & Stress', improvement: 48.0, clientCount: 180),
+    OutcomeData(condition: 'Digestive Issues', improvement: 42.0, clientCount: 120),
+    OutcomeData(condition: 'Sleep Disorders', improvement: 52.0, clientCount: 95),
+    OutcomeData(condition: 'Chronic Pain', improvement: 35.0, clientCount: 55),
   ];
 
   // Upcoming Appointments

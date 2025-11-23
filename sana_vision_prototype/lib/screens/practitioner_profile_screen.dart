@@ -171,10 +171,10 @@ class PractitionerProfileScreen extends StatelessWidget {
                     breakdown.measuredOutcomes,
                     40,
                     [
-                      'Average improvement: 67%',
-                      'Effect size: 0.82 (large)',
-                      'Client retention: 89%',
-                      '6-month follow-up completion: 78%',
+                      'Average improvement: 42%',
+                      'Effect size: 0.68 (medium-large)',
+                      'Client retention: 78%',
+                      '6-month follow-up completion: 72%',
                     ],
                   ),
                   _buildBreakdownItem(

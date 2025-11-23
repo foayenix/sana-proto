@@ -247,7 +247,7 @@ Output: `build/web/`
 All data is hardcoded dummy data showing:
 - **Health Score:** 78/100 (Thriving)
 - **SANA Index:** 87/100 (Top 10%)
-- **Improvement Rate:** 67% average
+- **Improvement Rate:** 44% average
 - **NHS Savings:** £124,000
 - **Research Data Points:** 12,450+
 
