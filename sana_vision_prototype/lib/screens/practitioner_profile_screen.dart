@@ -38,9 +38,9 @@ class PractitionerProfileScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 40),
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: 52,
-                      child: Icon(Icons.person, size: 52),
+                      backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
                     ),
                     const SizedBox(height: 12),
                     Text(

@@ -292,9 +292,9 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 20,
-                  child: Icon(Icons.person, size: 20),
+                  backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
                 ),
             const SizedBox(width: 16),
             Expanded(

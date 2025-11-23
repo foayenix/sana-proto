@@ -28,9 +28,9 @@ class PractitionerCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: 25,
-                      child: Icon(Icons.person, size: 28),
+                      backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
                     ),
                   const SizedBox(width: 12),
                   Expanded(

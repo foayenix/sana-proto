@@ -26,9 +26,9 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Row(
                   children: [
-                    const CircleAvatar(
+                    CircleAvatar(
                       radius: 46,
-                      child: Icon(Icons.person, size: 46),
+                      backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
                     ),
                     const SizedBox(width: 16),
                     Expanded(

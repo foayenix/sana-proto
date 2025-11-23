@@ -107,9 +107,9 @@ class AppointmentsScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
-                  child: Icon(Icons.person, size: 30),
+                  backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -231,9 +231,9 @@ class AppointmentsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 25,
-              child: Icon(Icons.person, size: 25),
+              backgroundImage: const AssetImage('assets/images/placeholder_avatar.png'),
             ),
             const SizedBox(width: 16),
             Expanded(
