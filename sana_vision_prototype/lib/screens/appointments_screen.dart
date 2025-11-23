@@ -107,9 +107,9 @@ class AppointmentsScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
-                  backgroundImage: NetworkImage(appointment.practitioner.imageUrl),
+                  child: Icon(Icons.person, size: 30),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -190,23 +190,22 @@ class AppointmentsScreen extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton.icon(
                     onPressed: () {},
-                    icon: const Icon(Icons.edit, size: 18),
-                    label: const Text('Reschedule'),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: AppTheme.textSecondary,
-                      side: const BorderSide(color: AppTheme.textLight),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: OutlinedButton.icon(
-                    onPressed: () {},
                     icon: const Icon(Icons.close, size: 18),
                     label: const Text('Cancel'),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: AppTheme.errorRed,
                       side: const BorderSide(color: AppTheme.errorRed),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.refresh, size: 18),
+                    label: const Text('Reschedule'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.primaryGreen,
                     ),
                   ),
                 ),
@@ -232,9 +231,9 @@ class AppointmentsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 25,
-              backgroundImage: NetworkImage(practitioner.imageUrl),
+              child: Icon(Icons.person, size: 25),
             ),
             const SizedBox(width: 16),
             Expanded(

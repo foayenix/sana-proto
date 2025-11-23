@@ -28,10 +28,10 @@ class PractitionerCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundImage: NetworkImage(practitioner.imageUrl),
-                  ),
+                    const CircleAvatar(
+                      radius: 25,
+                      child: Icon(Icons.person, size: 28),
+                    ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
